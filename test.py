@@ -214,16 +214,23 @@ def YouAreDead():
     win = pygame.display.set_mode(size)
     win.fill('black')
     font = pygame.font.Font(None, 50)
-    text = font.render("YOU ARE DEAD...", True, 'red')
+    text = font.render("YOU ARE LOST...", True, 'red')
     text_x = width // 2 - text.get_width() // 2
-    text_y = height // 2 - text.get_height() // 2 + 25
+    text_y = height // 2 - text.get_height() // 2
     win.blit(text, (text_x, text_y))
+    text2 = font.render("press any key to continue", True, 'red')
+    text_x = width // 2 - text.get_width() // 2 - 45
+    text_y = height // 2 - text.get_height() // 2 + 25
+    win.blit(text2, (text_x, text_y))
     pygame.display.update()
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.KEYDOWN:
                 draw()
+    pygame.quit()
 
 
 def YouAreWin():
@@ -234,13 +241,19 @@ def YouAreWin():
     font = pygame.font.Font(None, 50)
     text = font.render("YOU ARE WIN...", True, (255, 200, 0))
     text_x = width // 2 - text.get_width() // 2
-    text_y = height // 2 - text.get_height() // 2 + 25
+    text_y = height // 2 - text.get_height() // 2
     win.blit(text, (text_x, text_y))
+    text2 = font.render("press any key to continue", True, 'red')
+    text_x = width // 2 - text.get_width() // 2 - 45
+    text_y = height // 2 - text.get_height() // 2 + 25
+    win.blit(text2, (text_x, text_y))
     pygame.display.update()
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.KEYDOWN:
                 draw()
     pygame.quit()
 
